@@ -1,13 +1,7 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[3]:
-
-
 import openai
 import streamlit as st
 
-openai.api_key = "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"
+openai.api_key = "Your-OPENAI-key"
 
 
 def generate_summarizer(
@@ -38,16 +32,10 @@ def generate_summarizer(
     )
     return res["choices"][0]["message"]["content"]
 
-
-# In[4]:
-
-
-
-
-#Set the application title
+# application title
 st.title("Text Summarization")
 
-#Provide the input area for text to be summarized
+#Provide the input area for text 
 input_text = st.text_area("Enter the text to summarize:", height=200)
 
 #Initiate three columns for section to be side-by-side
@@ -84,10 +72,3 @@ with col3:
 #Creating button for execute the text summarization
 if st.button("Summarize"):
     st.write(generate_summarizer(token, temp, top_p, f_pen, input_text, option))
-
-
-# In[ ]:
-
-
-
-
